@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head><script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;
+                                                   charset=utf-8"/>
+    <title>Through the Looking-Glass</title>
+
+   
+   
+    <script>
+   $(document).ready(function(){ 
+
+
+ 
+   $("#TWEET").click(function(){
+ 
+
+
+  $.ajax({type:'GET',url:"http://twitter.com/status/user_timeline/jquery.json", 
+
+       success:function(feed){
+    
+   
+				for(var i=0; i < 10; i++) 
+				{				
+					$("#add_tweets").append("<li>" + feed[i].text + "</li>");					
+				}				
+                             },dataType:'jsonp'
+        });
+                             });
+                             });
+   </script> 
+
+
+  </head>
+
+<body>
+
+<form>
+<div>
+<input  id="TWEET" type=button value="Get Tweets" "/>
+<ul id="add_tweets">
+</ul>
+</div>
+
+<div id="ABC">
+
+</div>
+
+</form>
+
+
+</body>
+
+</html>

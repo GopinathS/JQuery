@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>jQuery validation plug-in - comment form example</title>
+
+<link rel="stylesheet" type="text/css" media="screen" href="css/screen.css" />
+
+<script src="../lib/jquery.js" type="text/javascript"></script>
+<script src="../jquery.validate.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#commentForm").validate();
+	$("#adc").hide();
+	$("#newsletter").click(function(){
+    $("#adc").slideToggle("slow");
+    
+  
+  });
+	
+	
+	 $("#submit").click(function(){ 
+    
+   if (!($("#newsletterlist1").is(":checked") || $("#newsletterlist2").is(":checked") || $("#newsletterlist3").is(":checked")) )
+		{
+		$("#adc").append("Select atleast 2 ");
+		
+	}
+	
+	  });
+	
+	
+});
+</script>
+
+<style type="text/css">
+#commentForm { width: 500px; }
+#commentForm label { width: 250px; }
+#commentForm label.error, #commentForm input.submit { margin-left: 253px; }
+</style>
+
+</head>
+<body>
+
+<form class="cmxform" id="commentForm" method="post" action="">
+	<fieldset>
+		
+		 <p>
+			<label for="fname">Firstname</label>
+			<input id="fname" name="fname" title="Please enter Your firstname." class="required" minlength="2" />
+		</p>
+		
+		 <p>
+			<label for="lname">Lastname</label>
+			<input id="lname" name="lname" title="Please enter Your lastname." class="required"  />
+		</p>
+		
+		<p>
+			<label for="uname">Username</label>
+			<input id="uname" name="uname" title="Please enter a username." class="required" />
+		</p>
+		
+		<p>
+			<label for="pwd">Passowrd</label>
+			<input id="pwd" type="password" title="Please provide a password." name="pwd" class="required" />
+		</p>
+		
+		
+		<p>
+			<label for="pwd">Confirm Password</label>
+			<input id="cpwd" type="password" title="Please provide a password." name="cpwd" class="required" />
+		</p>
+		
+		
+		
+		<p>
+			<label for="cemail">E-Mail (required)</label>
+			<input id="cemail" name="email" title="Please enter a valid email address." class="required email" />
+		</p>
+		
+		<p>
+			<label for="newsletter">Would you like to recieve newsletter ? check in .</label>
+			<input type="checkbox" id="newsletter" name="newsletter"  class="required" />
+		</p>
+		
+		<p id="adc">
+			<label for="newsletterlist" >Topics (select at least two )</label><br>
+		<br>
+		
+			<input type="checkbox" id="newsletterlist1" name="newsletterlist"  >MarketFlash</input><br>
+			<input type="checkbox" id="newsletterlist2" name="newsletterlist"   >Latest Fuzz</input><br>
+			<input type="checkbox" id="newsletterlist3" name="newsletterlist"  >Mailing list digester</input><br>
+			
+		</p>
+		
+		<p>
+			<input id="submit" class="submit" type="submit" value="Submit"/>
+		</p>
+	</fieldset>
+</form>
+
+</body>
+</html>
